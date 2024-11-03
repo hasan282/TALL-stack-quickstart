@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Facades\DB::listen(function ($query) {
+
+            $timestamp = date('d/m/Y H:i:s');
+            $sql       = $query->sql;
+            $binds     = implode(', ', $query->bindings);
+            $newline   = PHP_EOL;
+
+            Facades\File::append(
+                storage_path('logs/query.log'),
+                "--[$timestamp]--$newline--$sql--$newline--[$binds]--$newline"
+            );
+        });
     }
 }
