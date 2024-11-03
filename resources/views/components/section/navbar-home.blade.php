@@ -11,7 +11,6 @@
             </a>
 
             <div class="flex items-center lg:order-2">
-
                 <x-button.dark-switch
                     class="rounded-lg p-2 text-gray-800 dark:text-white bg-white hover:bg-gray-200 dark:bg-gray-900  dark:hover:bg-gray-700" />
 
@@ -36,35 +35,16 @@
 
             <div class="items-center justify-between w-full lg:flex lg:w-auto lg:order-1"
                 x-bind:class="{ 'hidden': !navOpen }">
-                <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                    <li>
-                        <a href="#"
-                            class="block py-2 pl-3 pr-4 text-white bg-purple-700 rounded lg:bg-transparent lg:text-purple-700 lg:p-0 dark:text-white"
-                            aria-current="page">Home</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Company</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Marketplace</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Features</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Team</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="block py-2 pl-3 pr-4 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-purple-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
-                    </li>
+                <ul class="flex flex-col mt-4 font-normal lg:flex-row lg:space-x-8 lg:mt-0">
+
+                    <x-link.navbar color="red" href="#about" :active='false'>About</x-link.navbar>
+                    <x-link.navbar color="red" href="#team" :active='false'>Team</x-link.navbar>
+                    <x-link.navbar color="red" href="#business" :active='false'>Business</x-link.navbar>
+                    <x-link.navbar color="red" href="#service" :active='false'>Service</x-link.navbar>
+                    <x-link.navbar color="red" href="#contact" :active='false'>Contact</x-link.navbar>
+
                 </ul>
             </div>
-
         </div>
     </nav>
 </header>
