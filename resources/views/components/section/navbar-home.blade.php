@@ -1,5 +1,5 @@
 <header class="fixed w-full">
-    <nav class="bg-white border-gray-200 py-3 dark:bg-gray-900 shadow-md" x-data="{ 'navOpen': false }">
+    <nav class="bg-white border-gray-200 py-3 dark:bg-gray-900 shadow-md" x-data="{ navOpen: false }">
         <div class="flex flex-wrap items-center justify-between max-w-screen-xl px-4 mx-auto">
 
             <a href="/" class="flex items-center text-red-600">
@@ -22,9 +22,9 @@
                     </span>
                 </a>
 
-                <x-link.button href="#" color="rose">Register Now</x-link.button>
+                <x-link.button href="#" color="red">Register Now</x-link.button>
 
-                <button type="button" @click="navOpen = !navOpen" @click.outside="if(navOpen)navOpen=false"
+                <button type="button" @click="navOpen=!navOpen" @click.outside="if(navOpen)navOpen=false"
                     class="p-2 ml-1 rounded-lg lg:hidden focus:outline-none text-gray-700 hover:bg-gray-200 dark:text-gray-100 dark:hover:bg-gray-700">
 
                     <span class="sr-only">Open main menu</span>

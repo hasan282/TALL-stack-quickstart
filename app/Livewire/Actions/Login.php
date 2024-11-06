@@ -3,6 +3,7 @@
 namespace App\Livewire\Actions;
 
 use App\Livewire\Forms\LoginForm;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
 class Login extends Component
@@ -12,6 +13,15 @@ class Login extends Component
     public function login()
     {
         sleep(5);
+
+        $this->validate();
+        $this->form->authenticate();
+
+        Session::regenerate();
+
+        // $this->redirectIntended(route('dashboard', absolute: false), true);
+
+        $this->redirect('/', true);
     }
 
     public function render()
