@@ -1,8 +1,6 @@
 <x-layout.home>
 
-    <x-slot:title>
-        Sign in
-    </x-slot:title>
+    <x-slot:title>Sign in</x-slot:title>
 
     <div class="bg-gray-100 dark:bg-gray-900 flex justify-center items-stretch min-h-screen">
 

@@ -3,7 +3,9 @@
 namespace App\Livewire\Forms;
 
 use Illuminate\Auth\Events\Lockout;
-use Illuminate\Support;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
@@ -11,42 +13,62 @@ use Livewire\Form;
 class LoginForm extends Form
 {
     #[Validate('required|string')]
-    public string $userNameEmail = '';
+    public string $useremail = '';
 
     #[Validate('required|string')]
-    public string $userPassword = '';
+    public string $password  = '';
 
-    protected bool $remember = true;
+    public string $username  = '';
+    public string $email     = '';
+    public bool   $remember  = false;
 
-    public function authenticate()
+    public function authenticate(): void
     {
         $this->ensureIsNotRateLimited();
 
-        if (Support\Facades\Auth::attempt($this->only([]), $this->remember)) {
+        if (! Auth::attempt($this->credentials(), $this->remember)) {
+            RateLimiter::hit($this->throttleKey());
 
-            Support\Facades\RateLimiter::hit(
-                $this->throttleKey()
-            );
-            throw ValidationException::withMessages([]);
+            throw ValidationException::withMessages([
+                'form.useremail' => trans('auth.failed'),
+            ]);
         }
-
-        Support\Facades\RateLimiter::clear($this->throttleKey());
+        RateLimiter::clear($this->throttleKey());
     }
 
-    protected function ensureIsNotRateLimited()
+    protected function credentials(): array
     {
-        if (!Support\Facades\RateLimiter::tooManyAttempts($this->throttleKey(), 5)) return;
+        if (filter_var($this->useremail, FILTER_VALIDATE_EMAIL)) {
+            $fieldname      = 'email';
+            $this->email    = $this->useremail;
+        } else {
+            $fieldname      = 'username';
+            $this->username = $this->useremail;
+        }
+
+        return $this->only([$fieldname, 'password']);
+    }
+
+    protected function ensureIsNotRateLimited(): void
+    {
+        if (! RateLimiter::tooManyAttempts($this->throttleKey(), 5)) {
+            return;
+        }
 
         event(new Lockout(request()));
 
-        throw ValidationException::withMessages([]);
+        $seconds = RateLimiter::availableIn($this->throttleKey());
+
+        throw ValidationException::withMessages([
+            'form.useremail' => trans('auth.throttle', [
+                'seconds' => $seconds,
+                'minutes' => ceil($seconds / 60),
+            ]),
+        ]);
     }
 
     protected function throttleKey(): string
     {
-        return Support\Str::transliterate(
-
-            Support\Str::lower($this->userNameEmail) . '|' . request()->ip()
-        );
+        return Str::transliterate(Str::lower($this->useremail) . '|' . request()->ip());
     }
 }

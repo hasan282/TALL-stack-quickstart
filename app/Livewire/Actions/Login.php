@@ -10,18 +10,14 @@ class Login extends Component
 {
     public LoginForm $form;
 
-    public function login()
+    public function login(): void
     {
-        sleep(5);
-
         $this->validate();
         $this->form->authenticate();
 
         Session::regenerate();
 
-        // $this->redirectIntended(route('dashboard', absolute: false), true);
-
-        $this->redirect('/', true);
+        $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
     }
 
     public function render()
