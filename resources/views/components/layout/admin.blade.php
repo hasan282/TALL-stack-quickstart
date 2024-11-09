@@ -21,7 +21,7 @@
 
 </head>
 
-<body x-data="{ hideSide: true }" class="bg-gray-200">
+<body x-data="{ hideSide: true }" class="bg-gray-200 dark:bg-gray-700">
 
     {{ $slot }}
 

@@ -1,8 +1,8 @@
 <div @click="hideSide=true" x-show="!hideSide"
-    class="bg-gray-800 opacity-70 fixed top-0 bottom-0 left-0 right-0 h-screen z-40 md:hidden"></div>
+    class="bg-gray-900 dark:bg-gray-600 opacity-80 fixed top-0 bottom-0 left-0 right-0 h-screen z-[45] md:hidden"></div>
 
 <aside x-bind:class="{ '-translate-x-full': hideSide }"
-    class="fixed top-0 left-0 z-50 w-60 h-screen bg-white shadow-md transition-transform md:translate-x-0">
+    class="fixed top-0 left-0 z-50 w-60 h-screen bg-white dark:bg-gray-900 shadow-md transition-transform md:translate-x-0">
 
     <div class="h-14 flex items-center">
         <a href="/" class="flex items-center mx-auto text-red-600" wire:navigate>
@@ -13,7 +13,7 @@
         </a>
     </div>
 
-    <div class="h-full px-3 py-4 overflow-y-auto border-t-2 border-gray-100">
+    <div class="h-full px-3 py-4 overflow-y-auto border-t-2 border-gray-100 dark:border-gray-800">
 
 
         <ul class="space-y-2 font-medium">
