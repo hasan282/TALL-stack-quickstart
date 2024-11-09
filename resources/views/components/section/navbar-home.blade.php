@@ -28,7 +28,7 @@
                         </span>
                     </a>
 
-                    <x-link.button href="#" color="red">Register Now</x-link.button>
+                    <x-link.button href="{{ route('register') }}" color="red">Register Now</x-link.button>
                 @endauth
 
                 <button type="button" @click="navOpen=!navOpen" @click.outside="if(navOpen)navOpen=false"
