@@ -1,25 +1,93 @@
-<x-layout.home>
+<x-layout.admin>
 
     <x-slot:title>Dashboard</x-slot:title>
 
-    <div class="p-3 flex flex-wrap items-center justify-between">
-        <a href="/" class="flex items-center text-red-600" wire:navigate>
-            <span class="dark:text-red-300">
-                <x-svg.laravel-logo class="block h-9 fill-current mr-2" />
-            </span>
-            <span
-                class="self-center max-sm:hidden text-xl font-semibold whitespace-nowrap dark:text-white">Laravel</span>
-        </a>
+    <x-section.sidebar />
 
-        <div class="flex items-center">
-            <x-button.dark-switch
-                class="rounded-lg p-2 text-gray-800 dark:text-white bg-gray-100 hover:bg-gray-200 dark:bg-gray-900  dark:hover:bg-gray-700" />
-            <x-link.button href="#" color="rose" class="ml-3">Register Now</x-link.button>
+    <x-section.navbar-admin />
+
+    <div class="md:ml-60 mt-14">
+
+        <div class="p-4 max-w-screen-xl mx-auto border-2 border-green-700 border-dashed dark:border-gray-700">
+            <div class="grid grid-cols-3 gap-4 mb-4">
+                <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
+                    <p class="text-2xl text-gray-400 dark:text-gray-500">
+                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 1v16M1 9h16" />
+                        </svg>
+                    </p>
+                </div>
+                <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800">
+                    <p class="text-2xl text-gray-400 dark:text-gray-500">
+                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 1v16M1 9h16" />
+                        </svg>
+                    </p>
+                </div>
+                <div class="flex items-center justify-center h-24 rounded bg-gray-50 dark:bg-gray-800 cursor-pointer">
+                    <p class="text-2xl text-gray-400 dark:text-gray-500">
+                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 1v16M1 9h16" />
+                        </svg>
+                    </p>
+                </div>
+            </div>
+            <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50 dark:bg-gray-800">
+                <p class="text-2xl text-gray-400 dark:text-gray-500">
+                    <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 18 18">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 1v16M1 9h16" />
+                    </svg>
+                </p>
+            </div>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+                    <p class="text-2xl text-gray-400 dark:text-gray-500">
+                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 1v16M1 9h16" />
+                        </svg>
+                    </p>
+                </div>
+                <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+                    <p class="text-2xl text-gray-400 dark:text-gray-500">
+                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 1v16M1 9h16" />
+                        </svg>
+                    </p>
+                </div>
+                <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+                    <p class="text-2xl text-gray-400 dark:text-gray-500">
+                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 1v16M1 9h16" />
+                        </svg>
+                    </p>
+                </div>
+                <div class="flex items-center justify-center rounded bg-gray-50 h-28 dark:bg-gray-800">
+                    <p class="text-2xl text-gray-400 dark:text-gray-500">
+                        <svg class="w-3.5 h-3.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 1v16M1 9h16" />
+                        </svg>
+                    </p>
+                </div>
+            </div>
+
+            </dv>
         </div>
     </div>
 
-    <div class="h-screen bg-gray-200 dark:bg-gray-800">
-
-    </div>
-
-</x-layout.home>
+</x-layout.admin>

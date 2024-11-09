@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
             $newline   = PHP_EOL;
 
             Facades\File::append(
-                storage_path('logs/query.log'),
+                storage_path('logs/query' . date('ymd') . '.log'),
                 "--[$timestamp]--$newline--$sql--$newline--[$binds]--$newline"
             );
         });
