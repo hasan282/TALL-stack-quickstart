@@ -25,10 +25,11 @@
         'lime' =>
             'bg-lime-700 dark:bg-lime-800 hover:bg-lime-800 dark:hover:bg-lime-700 focus:ring-lime-300 dark:focus:ring-lime-900',
     ];
+    if (!array_key_exists($color, $classList)) {
+        $color = 'blue';
+    }
     $classes =
         $classList[$color] . ' text-white focus:ring-2 focus:outline-none font-medium rounded-lg text-sm px-4 py-2';
 @endphp
 
-<a {{ $attributes->merge(['class' => $classes]) }}>
-    {{ $slot }}
-</a>
+<a {{ $attributes->merge(['class' => $classes]) }}>{{ $slot }}</a>
