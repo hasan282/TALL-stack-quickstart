@@ -6,20 +6,22 @@
     </h1>
 
     <form wire:submit="login">
-        <x-form.input id="userNameEmail" model="form.useremail" title="Email or Username" class="mb-2">
-            {{ $form->useremail }}
-        </x-form.input>
+        <x-form.input id="userNameEmail" model="form.useremail" title="Email or Username"
+            class="mb-2">{{ $form->useremail }}</x-form.input>
 
-        <x-form.input id="userPassword" model="form.password" title="Password" type="password" class="mb-8">
-            {{ $form->password }}
-        </x-form.input>
+        <x-form.input id="userPassword" model="form.password" title="Password" type="password"
+            class="mb-8">{{ $form->password }}</x-form.input>
 
-        <button type="submit"
-            class="flex justify-center bg-blue-600 dark:bg-blue-700 hover:bg-blue-700 dark:hover:bg-blue-600 text-white rounded-lg py-2 px-4 w-full disabled:bg-gray-300 dark:disabled:bg-gray-800 dark:disabled:text-gray-600">
+        {{-- @error() --}}
+        {{-- {{ var_dump($errors->all()) }} --}}
+        {{-- @enderror --}}
+
+        <x-button.submit>
             <span class="my-auto font-semibold">Sign in</span>
             <x-svg.login class="block h-5 fill-current my-auto ml-2" wire:loading.remove />
             <x-svg.spinner-ellipse class="block h-5 my-auto ml-2 animate-spin opacity-70" wire:loading />
-        </button>
+        </x-button.submit>
+
     </form>
 
     <div class="mt-3 text-center">

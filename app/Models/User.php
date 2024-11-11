@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -30,6 +31,20 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    protected static string $uuidPrefix = 'us';
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($user) {
+
+            $user->secure_id =
+
+                static::$uuidPrefix . Str::uuid()->toString();
+        });
+    }
 
     /**
      * Get the attributes that should be cast.
