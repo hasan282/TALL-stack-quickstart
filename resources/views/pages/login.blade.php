@@ -21,7 +21,8 @@
                 <div class="flex items-center">
                     <x-button.dark-switch
                         class="rounded-lg p-2 text-gray-800 dark:text-white bg-gray-100 hover:bg-gray-200 dark:bg-gray-900  dark:hover:bg-gray-700" />
-                    <x-link.button href="#" color="rose" class="ml-3">Register Now</x-link.button>
+                    <x-link.button href="{{ route('register') }}" color="rose" class="ml-3" wire:navigate>Register
+                        Now</x-link.button>
                 </div>
             </div>
 
